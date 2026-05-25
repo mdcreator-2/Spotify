@@ -11,6 +11,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return const Scaffold(
+      backgroundColor: Colors.black,
+      body: Column(
+        children: [
+          //Navbar,
+          Expanded(
+            child: Row(
+              children: [
+                //Sidebar
+                Expanded(
+                  child:
+                      //Main Body
+                      Column(
+                        children: [
+                          //Home Button
+                        ],
+                      ),
+                ),
+              ],
+            ),
+          ),
+
+          //Bottom Player Bar
+        ],
+      ),
+    );
   }
 }
