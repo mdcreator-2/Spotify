@@ -528,10 +528,34 @@ class _MainBodyState extends State<MainBody> {
           ),
           const SizedBox(height: 24),
 
-          // Bottom row: Copyright + Language selector
+          // Bottom row: Legal links + Copyright
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // Legal links
+              Wrap(
+                spacing: 24,
+                runSpacing: 8,
+                children: [
+                  'Legal',
+                  'Safety & Privacy Center',
+                  'Privacy Policy',
+                  'Cookies',
+                  'About Ads',
+                  'Accessibility',
+                ].map((link) => MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: Text(
+                        link,
+                        style: GoogleFonts.figtree(
+                          color: const Color(0xFFA7A7A7),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    )).toList(),
+              ),
+              // Copyright
               Text(
                 '© 2026 Spotify AB',
                 style: GoogleFonts.figtree(
@@ -542,7 +566,7 @@ class _MainBodyState extends State<MainBody> {
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 32),
         ],
       ),
     );
