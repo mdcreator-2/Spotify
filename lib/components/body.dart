@@ -319,9 +319,8 @@ class _MainBodyState extends State<MainBody> {
   }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
-// DATA MODELS
-// ═══════════════════════════════════════════════════════════════════════════
+//Data Models
+
 class _CardData {
   final String title;
   final String subtitle;
