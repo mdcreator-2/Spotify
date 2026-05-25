@@ -144,26 +144,11 @@ class _MainBodyState extends State<MainBody> {
                           'Yo Yo Honey Singh',
                           const Color(0xFF8E8E8E),
                         ),
-                        _ArtistData(
-                          'Emiway Bantai',
-                          const Color(0xFF5C5C5C),
-                        ),
-                        _ArtistData(
-                          'Anuv Jain',
-                          const Color(0xFF7A7A7A),
-                        ),
-                        _ArtistData(
-                          'Aditya Rikhari',
-                          const Color(0xFF6B4226),
-                        ),
-                        _ArtistData(
-                          'LXNGVX',
-                          const Color(0xFF8E44AD),
-                        ),
-                        _ArtistData(
-                          'Dj Samir',
-                          const Color(0xFF2C3E50),
-                        ),
+                        _ArtistData('Emiway Bantai', const Color(0xFF5C5C5C)),
+                        _ArtistData('Anuv Jain', const Color(0xFF7A7A7A)),
+                        _ArtistData('Aditya Rikhari', const Color(0xFF6B4226)),
+                        _ArtistData('LXNGVX', const Color(0xFF8E44AD)),
+                        _ArtistData('Dj Samir', const Color(0xFF2C3E50)),
                       ],
                     ),
 
@@ -182,41 +167,9 @@ class _MainBodyState extends State<MainBody> {
                       ],
                     ),
 
-                    const SizedBox(height: 12),
-
-                    // ── Popular radio (repeated section) ──
-                    _buildSectionHeader('Popular radio'),
-                    _buildHorizontalRadioRow(
-                      items: [
-                        _RadioData('Arijit Singh', const Color(0xFF1A5276)),
-                        _RadioData('KK', const Color(0xFF2E7D32)),
-                        _RadioData('Kishore Kumar', const Color(0xFF8E44AD)),
-                        _RadioData('A.R. Rahman', const Color(0xFFC0392B)),
-                        _RadioData('Shreya Ghoshal', const Color(0xFF2C3E50)),
-                        _RadioData('Diljit D...', const Color(0xFFE67E22)),
-                      ],
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    // ── Popular radio (repeated section) ──
-                    _buildSectionHeader('Popular radio'),
-                    _buildHorizontalRadioRow(
-                      items: [
-                        _RadioData('Arijit Singh', const Color(0xFF1A5276)),
-                        _RadioData('KK', const Color(0xFF2E7D32)),
-                        _RadioData('Kishore Kumar', const Color(0xFF8E44AD)),
-                        _RadioData('A.R. Rahman', const Color(0xFFC0392B)),
-                        _RadioData('Shreya Ghoshal', const Color(0xFF2C3E50)),
-                        _RadioData('Diljit D...', const Color(0xFFE67E22)),
-                      ],
-                    ),
-
                     const SizedBox(height: 48),
 
-                    // ═══════════════════════════════════════════════════
                     // FOOTER
-                    // ═══════════════════════════════════════════════════
                     _buildFooter(),
 
                     const SizedBox(height: 24),
@@ -257,9 +210,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
   // ALBUM CARDS ROW
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildHorizontalCardRow({required List<_CardData> items}) {
     return SizedBox(
       height: 290,
@@ -321,9 +272,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
   // FAVOURITE ARTISTS ROW (Circular)
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildHorizontalArtistRow({required List<_ArtistData> items}) {
     return SizedBox(
       height: 240,
@@ -394,9 +343,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
   // RADIO CARDS ROW
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildHorizontalRadioRow({required List<_RadioData> items}) {
     return SizedBox(
       height: 260,
@@ -445,9 +392,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // ═══════════════════════════════════════════════════════════════════════════
   // FOOTER
-  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildFooter() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -455,10 +400,7 @@ class _MainBodyState extends State<MainBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Divider
-          Container(
-            height: 1,
-            color: const Color(0xFF282828),
-          ),
+          Container(height: 1, color: const Color(0xFF282828)),
           const SizedBox(height: 40),
 
           // Footer columns
@@ -467,43 +409,39 @@ class _MainBodyState extends State<MainBody> {
             children: [
               // Company column
               Expanded(
-                child: _buildFooterColumn(
-                  'Company',
-                  ['About', 'Jobs', 'For the Record'],
-                ),
+                child: _buildFooterColumn('Company', [
+                  'About',
+                  'Jobs',
+                  'For the Record',
+                ]),
               ),
               // Communities column
               Expanded(
-                child: _buildFooterColumn(
-                  'Communities',
-                  [
-                    'For Artists',
-                    'Developers',
-                    'Advertising',
-                    'Investors',
-                    'Vendors',
-                  ],
-                ),
+                child: _buildFooterColumn('Communities', [
+                  'For Artists',
+                  'Developers',
+                  'Advertising',
+                  'Investors',
+                  'Vendors',
+                ]),
               ),
               // Useful links column
               Expanded(
-                child: _buildFooterColumn(
-                  'Useful links',
-                  ['Support', 'Free Mobile App', 'Redeem'],
-                ),
+                child: _buildFooterColumn('Useful links', [
+                  'Support',
+                  'Free Mobile App',
+                  'Redeem',
+                ]),
               ),
               // Spotify Plans column
               Expanded(
-                child: _buildFooterColumn(
-                  'Spotify Plans',
-                  [
-                    'Premium Individual',
-                    'Premium Duo',
-                    'Premium Family',
-                    'Premium Student',
-                    'Spotify Free',
-                  ],
-                ),
+                child: _buildFooterColumn('Spotify Plans', [
+                  'Premium Individual',
+                  'Premium Duo',
+                  'Premium Family',
+                  'Premium Student',
+                  'Spotify Free',
+                ]),
               ),
               // Social icons on the right
               const Spacer(),
@@ -522,10 +460,7 @@ class _MainBodyState extends State<MainBody> {
           const SizedBox(height: 40),
 
           // Divider
-          Container(
-            height: 1,
-            color: const Color(0xFF282828),
-          ),
+          Container(height: 1, color: const Color(0xFF282828)),
           const SizedBox(height: 24),
 
           // Bottom row: Legal links + Copyright
@@ -536,24 +471,29 @@ class _MainBodyState extends State<MainBody> {
               Wrap(
                 spacing: 24,
                 runSpacing: 8,
-                children: [
-                  'Legal',
-                  'Safety & Privacy Center',
-                  'Privacy Policy',
-                  'Cookies',
-                  'About Ads',
-                  'Accessibility',
-                ].map((link) => MouseRegion(
-                      cursor: SystemMouseCursors.click,
-                      child: Text(
-                        link,
-                        style: GoogleFonts.figtree(
-                          color: const Color(0xFFA7A7A7),
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    )).toList(),
+                children:
+                    [
+                          'Legal',
+                          'Safety & Privacy Center',
+                          'Privacy Policy',
+                          'Cookies',
+                          'About Ads',
+                          'Accessibility',
+                        ]
+                        .map(
+                          (link) => MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Text(
+                              link,
+                              style: GoogleFonts.figtree(
+                                color: const Color(0xFFA7A7A7),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
               ),
               // Copyright
               Text(
@@ -615,19 +555,13 @@ class _MainBodyState extends State<MainBody> {
           color: Color(0xFF292929),
           shape: BoxShape.circle,
         ),
-        child: Icon(
-          icon,
-          color: Colors.white,
-          size: 18,
-        ),
+        child: Icon(icon, color: Colors.white, size: 18),
       ),
     );
   }
 }
 
-// ═══════════════════════════════════════════════════════════════════════════
 // DATA MODELS
-// ═══════════════════════════════════════════════════════════════════════════
 class _CardData {
   final String title;
   final String subtitle;
