@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'hover_builder.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({super.key});
@@ -42,20 +43,22 @@ class _SideBarState extends State<SideBar> {
                 ),
                 const Spacer(),
                 // + Create button
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF1F1F1F),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.add, color: Colors.white, size: 22),
-                    ],
+                HoverBuilder(
+                  builder: (isHovered) => Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 4,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isHovered ? const Color(0xFF2A2A2A) : const Color(0xFF1F1F1F),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.add, color: isHovered ? Colors.white : const Color(0xFFB3B3B3), size: 22),
+                      ],
+                    ),
                   ),
                 ),
                 const SizedBox(width: 6),
@@ -205,58 +208,63 @@ class SideBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6)),
-        child: Row(
-          children: [
-            icon,
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: GoogleFonts.figtree(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 2),
-                  Row(
-                    children: [
-                      if (showPin) ...[
-                        const Icon(
-                          Icons.push_pin,
-                          color: Color(0xFF1DB954),
-                          size: 12,
-                        ),
-                        const SizedBox(width: 4),
-                      ],
-                      Expanded(
-                        child: Text(
-                          subtitle,
-                          style: GoogleFonts.figtree(
-                            color: const Color(0xFFB3B3B3),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+    return HoverBuilder(
+      builder: (isHovered) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: isHovered ? const Color(0xFF2A2A2A) : Colors.transparent,
+            borderRadius: BorderRadius.circular(6),
+          ),
+          child: Row(
+            children: [
+              icon,
+              const SizedBox(width: 10),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: GoogleFonts.figtree(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
                       ),
-                    ],
-                  ),
-                ],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    const SizedBox(height: 2),
+                    Row(
+                      children: [
+                        if (showPin) ...[
+                          const Icon(
+                            Icons.push_pin,
+                            color: Color(0xFF1DB954),
+                            size: 12,
+                          ),
+                          const SizedBox(width: 4),
+                        ],
+                        Expanded(
+                          child: Text(
+                            subtitle,
+                            style: GoogleFonts.figtree(
+                              color: const Color(0xFFB3B3B3),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w500,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

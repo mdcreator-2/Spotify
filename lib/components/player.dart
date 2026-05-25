@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'hover_builder.dart';
 
 class Player extends StatefulWidget {
   const Player({super.key});
@@ -49,26 +50,34 @@ class _PlayerState extends State<Player> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Farebi',
-                        style: GoogleFonts.figtree(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
+                      HoverBuilder(
+                        builder: (isHovered) => Text(
+                          'Farebi',
+                          style: GoogleFonts.figtree(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            decoration: isHovered ? TextDecoration.underline : null,
+                            decorationColor: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
                       ),
                       const SizedBox(height: 2),
-                      Text(
-                        'Chaar Diwaari, Raftaar',
-                        style: GoogleFonts.figtree(
-                          color: const Color(0xFFB3B3B3),
-                          fontSize: 11,
-                          fontWeight: FontWeight.w400,
+                      HoverBuilder(
+                        builder: (isHovered) => Text(
+                          'Chaar Diwaari, Raftaar',
+                          style: GoogleFonts.figtree(
+                            color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                            fontSize: 11,
+                            fontWeight: FontWeight.w400,
+                            decoration: isHovered ? TextDecoration.underline : null,
+                            decorationColor: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
                       ),
                     ],
                   ),
@@ -76,10 +85,15 @@ class _PlayerState extends State<Player> {
                 const SizedBox(width: 15),
 
                 // Add to Library (Heart/Plus) Icon
-                Icon(
-                  Icons.add_circle_outline,
-                  color: const Color(0xFFB3B3B3),
-                  size: 18,
+                HoverBuilder(
+                  builder: (isHovered) => Transform.scale(
+                    scale: isHovered ? 1.1 : 1.0,
+                    child: Icon(
+                      Icons.add_circle_outline,
+                      color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                      size: 18,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -109,17 +123,22 @@ class _PlayerState extends State<Player> {
                     const SizedBox(width: 10),
 
                     // Play/Pause button (circle)
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.play_arrow_rounded,
-                        color: Colors.black,
-                        size: 20,
+                    HoverBuilder(
+                      builder: (isHovered) => Transform.scale(
+                        scale: isHovered ? 1.05 : 1.0,
+                        child: Container(
+                          width: 32,
+                          height: 32,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.play_arrow_rounded,
+                            color: Colors.black,
+                            size: 20,
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(width: 10),
@@ -309,9 +328,15 @@ class _PlayerState extends State<Player> {
     double size = 20,
     Color color = Colors.white,
   }) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: Icon(icon, size: size, color: color),
+    return HoverBuilder(
+      builder: (isHovered) => Transform.scale(
+        scale: isHovered ? 1.1 : 1.0,
+        child: Icon(
+          icon,
+          size: size,
+          color: isHovered ? Colors.white : color,
+        ),
+      ),
     );
   }
 }
