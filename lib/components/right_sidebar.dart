@@ -17,7 +17,7 @@ class RightSidebar extends StatelessWidget {
         children: [
           // ── Header: Playlist name + actions ──
           Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 12, 8),
+            padding: const EdgeInsets.fromLTRB(20, 16, 16, 16),
             child: Row(
               children: [
                 // Playlist icon
@@ -32,8 +32,8 @@ class RightSidebar extends StatelessWidget {
                     'Liked Songs',
                     style: GoogleFonts.figtree(
                       color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w800,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -50,96 +50,101 @@ class RightSidebar extends StatelessWidget {
           // ── Scrollable Content ──
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // ── Album Art (large) ──
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
-                    child: Container(
-                      width: double.infinity,
-                      height: 308,
-                      decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFFDAA520), // Golden yellow
-                            Color(0xFFB8860B), // Dark golden
-                            Color(0xFF8B6914), // Deep gold
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: Container(
+                        width: double.infinity,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xFFDAA520), // Golden yellow
+                              Color(0xFFB8860B), // Dark golden
+                              Color(0xFF8B6914), // Deep gold
+                            ],
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            // Album art placeholder with vintage TV aesthetic
+                            Center(
+                              child: Container(
+                                width: 200,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFF2A2A2A),
+                                  borderRadius: BorderRadius.circular(16),
+                                  border: Border.all(
+                                    color: const Color(0xFF555555),
+                                    width: 3,
+                                  ),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.music_note_rounded,
+                                      color: Colors.white.withValues(
+                                        alpha: 0.6,
+                                      ),
+                                      size: 60,
+                                    ),
+                                    const SizedBox(height: 8),
+                                    Text(
+                                      'Now Playing',
+                                      style: GoogleFonts.figtree(
+                                        color: Colors.white.withValues(
+                                          alpha: 0.5,
+                                        ),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            // Artist credits at the bottom
+                            Positioned(
+                              bottom: 12,
+                              left: 14,
+                              child: Text(
+                                'CHAAR DIWAARI',
+                                style: GoogleFonts.figtree(
+                                  color: Colors.white.withValues(alpha: 0.9),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 12,
+                              right: 14,
+                              child: Text(
+                                'RAFTAAR',
+                                style: GoogleFonts.figtree(
+                                  color: Colors.white.withValues(alpha: 0.9),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.w700,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      child: Stack(
-                        children: [
-                          // Album art placeholder with vintage TV aesthetic
-                          Center(
-                            child: Container(
-                              width: 200,
-                              height: 200,
-                              decoration: BoxDecoration(
-                                color: const Color(0xFF2A2A2A),
-                                borderRadius: BorderRadius.circular(16),
-                                border: Border.all(
-                                  color: const Color(0xFF555555),
-                                  width: 3,
-                                ),
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(
-                                    Icons.music_note_rounded,
-                                    color: Colors.white.withValues(alpha: 0.6),
-                                    size: 60,
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    'Now Playing',
-                                    style: GoogleFonts.figtree(
-                                      color:
-                                          Colors.white.withValues(alpha: 0.5),
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          // Artist credits at the bottom
-                          Positioned(
-                            bottom: 12,
-                            left: 14,
-                            child: Text(
-                              'CHAAR DIWAARI',
-                              style: GoogleFonts.figtree(
-                                color: Colors.white.withValues(alpha: 0.9),
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0.5,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 12,
-                            right: 14,
-                            child: Text(
-                              'RAFTAAR',
-                              style: GoogleFonts.figtree(
-                                color: Colors.white.withValues(alpha: 0.9),
-                                fontSize: 11,
-                                fontWeight: FontWeight.w700,
-                                letterSpacing: 0.5,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 12),
 
                   // ── Song Title + Actions ──
                   Row(
@@ -224,10 +229,7 @@ class RightSidebar extends StatelessWidget {
                               gradient: LinearGradient(
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
-                                colors: [
-                                  Color(0xFF2D2D2D),
-                                  Color(0xFF1A1A1A),
-                                ],
+                                colors: [Color(0xFF2D2D2D), Color(0xFF1A1A1A)],
                               ),
                             ),
                             child: Stack(
@@ -235,8 +237,7 @@ class RightSidebar extends StatelessWidget {
                                 Center(
                                   child: Icon(
                                     Icons.person_rounded,
-                                    color:
-                                        Colors.white.withValues(alpha: 0.15),
+                                    color: Colors.white.withValues(alpha: 0.15),
                                     size: 100,
                                   ),
                                 ),
@@ -378,11 +379,7 @@ class RightSidebar extends StatelessWidget {
   Widget _buildHeaderAction(IconData icon, double size) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      child: Icon(
-        icon,
-        color: const Color(0xFFB3B3B3),
-        size: size,
-      ),
+      child: Icon(icon, color: const Color(0xFFB3B3B3), size: size),
     );
   }
 
@@ -399,11 +396,7 @@ class RightSidebar extends StatelessWidget {
               color: Color(0xFF282828),
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              icon,
-              color: const Color(0xFFB3B3B3),
-              size: 20,
-            ),
+            child: Icon(icon, color: const Color(0xFFB3B3B3), size: 20),
           ),
           const SizedBox(width: 12),
           // Name + Role
@@ -433,16 +426,10 @@ class RightSidebar extends StatelessWidget {
           // Follow button for artists
           if (role.contains('Artist'))
             Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 14,
-                vertical: 4,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: const Color(0xFF727272),
-                  width: 1,
-                ),
+                border: Border.all(color: const Color(0xFF727272), width: 1),
               ),
               child: Text(
                 'Follow',

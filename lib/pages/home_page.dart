@@ -3,6 +3,7 @@ import '../components/navbar.dart';
 import '../components/sidebar.dart';
 import '../components/body.dart';
 import '../components/player.dart';
+import '../components/right_sidebar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,11 +24,14 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: Row(
               children: [
-                //Sidebar
+                //Left Sidebar
                 SideBar(),
+                //Main Content
                 Expanded(
                   child: MainBody(),
                 ),
+                //Right Sidebar (Now Playing)
+                RightSidebar(),
               ],
             ),
           ),
