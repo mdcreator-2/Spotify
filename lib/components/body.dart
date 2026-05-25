@@ -136,6 +136,39 @@ class _MainBodyState extends State<MainBody> {
 
                     const SizedBox(height: 12),
 
+                    // ── Your favourite artists ──
+                    _buildSectionHeader('Your favourite artists'),
+                    _buildHorizontalArtistRow(
+                      items: [
+                        _ArtistData(
+                          'Yo Yo Honey Singh',
+                          const Color(0xFF8E8E8E),
+                        ),
+                        _ArtistData(
+                          'Emiway Bantai',
+                          const Color(0xFF5C5C5C),
+                        ),
+                        _ArtistData(
+                          'Anuv Jain',
+                          const Color(0xFF7A7A7A),
+                        ),
+                        _ArtistData(
+                          'Aditya Rikhari',
+                          const Color(0xFF6B4226),
+                        ),
+                        _ArtistData(
+                          'LXNGVX',
+                          const Color(0xFF8E44AD),
+                        ),
+                        _ArtistData(
+                          'Dj Samir',
+                          const Color(0xFF2C3E50),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 12),
+
                     // ── Popular radio ──
                     _buildSectionHeader('Popular radio'),
                     _buildHorizontalRadioRow(
@@ -148,7 +181,10 @@ class _MainBodyState extends State<MainBody> {
                         _RadioData('Diljit D...', const Color(0xFFE67E22)),
                       ],
                     ),
-                    // ── Popular radio ──
+
+                    const SizedBox(height: 12),
+
+                    // ── Popular radio (repeated section) ──
                     _buildSectionHeader('Popular radio'),
                     _buildHorizontalRadioRow(
                       items: [
@@ -160,7 +196,10 @@ class _MainBodyState extends State<MainBody> {
                         _RadioData('Diljit D...', const Color(0xFFE67E22)),
                       ],
                     ),
-                    // ── Popular radio ──
+
+                    const SizedBox(height: 12),
+
+                    // ── Popular radio (repeated section) ──
                     _buildSectionHeader('Popular radio'),
                     _buildHorizontalRadioRow(
                       items: [
@@ -172,6 +211,15 @@ class _MainBodyState extends State<MainBody> {
                         _RadioData('Diljit D...', const Color(0xFFE67E22)),
                       ],
                     ),
+
+                    const SizedBox(height: 48),
+
+                    // ═══════════════════════════════════════════════════
+                    // FOOTER
+                    // ═══════════════════════════════════════════════════
+                    _buildFooter(),
+
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
@@ -209,6 +257,9 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ALBUM CARDS ROW
+  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildHorizontalCardRow({required List<_CardData> items}) {
     return SizedBox(
       height: 290,
@@ -270,6 +321,82 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FAVOURITE ARTISTS ROW (Circular)
+  // ═══════════════════════════════════════════════════════════════════════════
+  Widget _buildHorizontalArtistRow({required List<_ArtistData> items}) {
+    return SizedBox(
+      height: 240,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        itemCount: items.length,
+        itemBuilder: (context, index) {
+          final item = items[index];
+          return _buildArtistCard(item);
+        },
+      ),
+    );
+  }
+
+  Widget _buildArtistCard(_ArtistData item) {
+    return Container(
+      width: 180,
+      margin: const EdgeInsets.only(right: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Circular artist image
+          Container(
+            width: 180,
+            height: 180,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: item.color,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.4),
+                  blurRadius: 12,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Icon(
+                Icons.person_rounded,
+                color: Colors.white.withValues(alpha: 0.3),
+                size: 64,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            item.name,
+            style: GoogleFonts.figtree(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          const SizedBox(height: 2),
+          Text(
+            'Artist',
+            style: GoogleFonts.figtree(
+              color: const Color(0xFFB3B3B3),
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // RADIO CARDS ROW
+  // ═══════════════════════════════════════════════════════════════════════════
   Widget _buildHorizontalRadioRow({required List<_RadioData> items}) {
     return SizedBox(
       height: 260,
@@ -317,10 +444,166 @@ class _MainBodyState extends State<MainBody> {
       ),
     );
   }
+
+  // ═══════════════════════════════════════════════════════════════════════════
+  // FOOTER
+  // ═══════════════════════════════════════════════════════════════════════════
+  Widget _buildFooter() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Divider
+          Container(
+            height: 1,
+            color: const Color(0xFF282828),
+          ),
+          const SizedBox(height: 40),
+
+          // Footer columns
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Company column
+              Expanded(
+                child: _buildFooterColumn(
+                  'Company',
+                  ['About', 'Jobs', 'For the Record'],
+                ),
+              ),
+              // Communities column
+              Expanded(
+                child: _buildFooterColumn(
+                  'Communities',
+                  [
+                    'For Artists',
+                    'Developers',
+                    'Advertising',
+                    'Investors',
+                    'Vendors',
+                  ],
+                ),
+              ),
+              // Useful links column
+              Expanded(
+                child: _buildFooterColumn(
+                  'Useful links',
+                  ['Support', 'Free Mobile App', 'Redeem'],
+                ),
+              ),
+              // Spotify Plans column
+              Expanded(
+                child: _buildFooterColumn(
+                  'Spotify Plans',
+                  [
+                    'Premium Individual',
+                    'Premium Duo',
+                    'Premium Family',
+                    'Premium Student',
+                    'Spotify Free',
+                  ],
+                ),
+              ),
+              // Social icons on the right
+              const Spacer(),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildSocialIcon(Icons.language),
+                  const SizedBox(width: 12),
+                  _buildSocialIcon(Icons.alternate_email_rounded),
+                  const SizedBox(width: 12),
+                  _buildSocialIcon(Icons.camera_alt_outlined),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 40),
+
+          // Divider
+          Container(
+            height: 1,
+            color: const Color(0xFF282828),
+          ),
+          const SizedBox(height: 24),
+
+          // Bottom row: Copyright + Language selector
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '© 2026 Spotify AB',
+                style: GoogleFonts.figtree(
+                  color: const Color(0xFFA7A7A7),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFooterColumn(String title, List<String> links) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: GoogleFonts.figtree(
+            color: Colors.white,
+            fontSize: 14,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        const SizedBox(height: 16),
+        ...links.map(
+          (link) => Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: Text(
+                link,
+                style: GoogleFonts.figtree(
+                  color: const Color(0xFFB3B3B3),
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSocialIcon(IconData icon) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: Container(
+        width: 40,
+        height: 40,
+        decoration: const BoxDecoration(
+          color: Color(0xFF292929),
+          shape: BoxShape.circle,
+        ),
+        child: Icon(
+          icon,
+          color: Colors.white,
+          size: 18,
+        ),
+      ),
+    );
+  }
 }
 
-//Data Models
-
+// ═══════════════════════════════════════════════════════════════════════════
+// DATA MODELS
+// ═══════════════════════════════════════════════════════════════════════════
 class _CardData {
   final String title;
   final String subtitle;
@@ -332,4 +615,10 @@ class _RadioData {
   final String name;
   final Color color;
   const _RadioData(this.name, this.color);
+}
+
+class _ArtistData {
+  final String name;
+  final Color color;
+  const _ArtistData(this.name, this.color);
 }
