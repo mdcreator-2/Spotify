@@ -71,25 +71,27 @@ class _MainBodyState extends State<MainBody> {
                                   _selectedFilterIndex = index;
                                 });
                               },
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 14,
-                                  vertical: 8,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: isSelected
-                                      ? Colors.white
-                                      : const Color(0xFF2A2A2A),
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                                child: Text(
-                                  _filters[index],
-                                  style: GoogleFonts.figtree(
+                              child: HoverBuilder(
+                                builder: (isHovered) => Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 14,
+                                    vertical: 8,
+                                  ),
+                                  decoration: BoxDecoration(
                                     color: isSelected
-                                        ? Colors.black
-                                        : Colors.white,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w500,
+                                        ? Colors.white
+                                        : (isHovered ? const Color(0xFF333333) : const Color(0xFF2A2A2A)),
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Text(
+                                    _filters[index],
+                                    style: GoogleFonts.figtree(
+                                      color: isSelected
+                                          ? Colors.black
+                                          : Colors.white,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ),

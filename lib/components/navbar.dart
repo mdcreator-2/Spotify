@@ -22,13 +22,18 @@ class _NavBarState extends State<NavBar> {
           const SizedBox(width: 16),
 
           //Logo
-          Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              color: Theme.of(context).scaffoldBackgroundColor,
+          HoverBuilder(
+            builder: (isHovered) => Transform.scale(
+              scale: isHovered ? 1.05 : 1.0,
+              child: Container(
+                width: 32,
+                height: 32,
+                decoration: BoxDecoration(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                ),
+                child: Image.asset("assets/images/logo.png"),
+              ),
             ),
-            child: Image.asset("assets/images/logo.png"),
           ),
           const SizedBox(width: 25),
 

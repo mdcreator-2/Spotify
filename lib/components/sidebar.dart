@@ -27,18 +27,24 @@ class _SideBarState extends State<SideBar> {
             padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
             child: Row(
               children: [
-                const Icon(
-                  Icons.library_music_outlined,
-                  color: Color(0xFFB3B3B3),
-                  size: 22,
-                ),
-                const SizedBox(width: 10),
-                Text(
-                  'Your Library',
-                  style: GoogleFonts.figtree(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
+                HoverBuilder(
+                  builder: (isHovered) => Row(
+                    children: [
+                      Icon(
+                        Icons.library_music_outlined,
+                        color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                        size: 22,
+                      ),
+                      const SizedBox(width: 10),
+                      Text(
+                        'Your Library',
+                        style: GoogleFonts.figtree(
+                          color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 const Spacer(),
@@ -63,10 +69,12 @@ class _SideBarState extends State<SideBar> {
                 ),
                 const SizedBox(width: 6),
                 // Resize icon
-                const Icon(
-                  Icons.open_in_full_rounded,
-                  color: Color(0xFFB3B3B3),
-                  size: 16,
+                HoverBuilder(
+                  builder: (isHovered) => Icon(
+                    Icons.open_in_full_rounded,
+                    color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                    size: 16,
+                  ),
                 ),
               ],
             ),
@@ -77,21 +85,23 @@ class _SideBarState extends State<SideBar> {
             padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0xFF2A2A2A),
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Text(
-                  'Artists',
-                  style: GoogleFonts.figtree(
-                    color: Colors.white,
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
+              child: HoverBuilder(
+                builder: (isHovered) => Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isHovered ? const Color(0xFF333333) : const Color(0xFF2A2A2A),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Text(
+                    'Artists',
+                    style: GoogleFonts.figtree(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w700,
+                    ),
                   ),
                 ),
               ),
@@ -103,21 +113,33 @@ class _SideBarState extends State<SideBar> {
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             child: Row(
               children: [
-                const Icon(Icons.search, color: Color(0xFFB3B3B3), size: 20),
-                const Spacer(),
-                Text(
-                  'Recents',
-                  style: GoogleFonts.figtree(
-                    color: const Color(0xFFB3B3B3),
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
+                HoverBuilder(
+                  builder: (isHovered) => Icon(
+                    Icons.search,
+                    color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                    size: 20,
                   ),
                 ),
-                const SizedBox(width: 4),
-                const Icon(
-                  Icons.format_list_bulleted,
-                  color: Color(0xFFB3B3B3),
-                  size: 18,
+                const Spacer(),
+                HoverBuilder(
+                  builder: (isHovered) => Row(
+                    children: [
+                      Text(
+                        'Recents',
+                        style: GoogleFonts.figtree(
+                          color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Icon(
+                        Icons.format_list_bulleted,
+                        color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                        size: 18,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
