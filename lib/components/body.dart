@@ -101,7 +101,7 @@ class _MainBodyState extends State<MainBody> {
                       ),
                     ),
 
-                    // ── Popular albums and singles ──
+                    // Popular albums and singles
                     _buildSectionHeader('Popular albums and singles'),
                     _buildHorizontalCardRow(
                       items: [
@@ -140,7 +140,7 @@ class _MainBodyState extends State<MainBody> {
 
                     const SizedBox(height: 12),
 
-                    // ── Popular radio ──
+                    // Popular radio
                     _buildSectionHeader('Popular radio'),
                     _buildHorizontalRadioRow(
                       items: [
@@ -154,7 +154,7 @@ class _MainBodyState extends State<MainBody> {
                     ),
                     const SizedBox(height: 12),
 
-                    // ── Your favourite artists ──
+                    // Favourite artists
                     _buildSectionHeader('Your favourite artists'),
                     _buildHorizontalArtistRow(
                       items: [
@@ -172,7 +172,7 @@ class _MainBodyState extends State<MainBody> {
 
                     const SizedBox(height: 48),
 
-                    // FOOTER
+                    // Footer
                     _buildFooter(),
 
                     const SizedBox(height: 24),
@@ -217,7 +217,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // ALBUM CARDS ROW
+  // Album cards
   Widget _buildHorizontalCardRow({required List<_CardData> items}) {
     return HoverScrollableRow(
       height: 290,
@@ -280,7 +280,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // FAVOURITE ARTISTS ROW (Circular)
+  // Favourite artists
   Widget _buildHorizontalArtistRow({required List<_ArtistData> items}) {
     return HoverScrollableRow(
       height: 240,
@@ -351,7 +351,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // RADIO CARDS ROW
+  // Radio cards
   Widget _buildHorizontalRadioRow({required List<_RadioData> items}) {
     return HoverScrollableRow(
       height: 260,
@@ -400,7 +400,7 @@ class _MainBodyState extends State<MainBody> {
     );
   }
 
-  // FOOTER
+  // Footer
   Widget _buildFooter() {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -570,7 +570,7 @@ class _MainBodyState extends State<MainBody> {
   }
 }
 
-// DATA MODELS
+// Data models
 class _CardData {
   final String title;
   final String subtitle;

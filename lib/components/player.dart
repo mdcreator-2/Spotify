@@ -23,7 +23,7 @@ class _PlayerState extends State<Player> {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
-          // ── Left Section: Currently Playing Track Info ──
+          // Track info
           Expanded(
             flex: 3,
             child: Row(
@@ -57,7 +57,9 @@ class _PlayerState extends State<Player> {
                             color: Colors.white,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
-                            decoration: isHovered ? TextDecoration.underline : null,
+                            decoration: isHovered
+                                ? TextDecoration.underline
+                                : null,
                             decorationColor: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
@@ -69,10 +71,14 @@ class _PlayerState extends State<Player> {
                         builder: (isHovered) => Text(
                           'Chaar Diwaari, Raftaar',
                           style: GoogleFonts.figtree(
-                            color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                            color: isHovered
+                                ? Colors.white
+                                : const Color(0xFFB3B3B3),
                             fontSize: 11,
                             fontWeight: FontWeight.w400,
-                            decoration: isHovered ? TextDecoration.underline : null,
+                            decoration: isHovered
+                                ? TextDecoration.underline
+                                : null,
                             decorationColor: Colors.white,
                           ),
                           overflow: TextOverflow.ellipsis,
@@ -99,7 +105,7 @@ class _PlayerState extends State<Player> {
             ),
           ),
 
-          // ── Center Section: Transport Controls + Progress Bar ──
+          // Transport controls and progress
           Expanded(
             flex: 4,
             child: Column(
@@ -122,7 +128,7 @@ class _PlayerState extends State<Player> {
                     ),
                     const SizedBox(width: 10),
 
-                    // Play/Pause button (circle)
+                    // Play/Pause button
                     HoverBuilder(
                       builder: (isHovered) => Transform.scale(
                         scale: isHovered ? 1.05 : 1.0,
@@ -222,7 +228,7 @@ class _PlayerState extends State<Player> {
             ),
           ),
 
-          // ── Right Section: Utility Controls ──
+          // Utility controls
           Expanded(
             flex: 3,
             child: Row(
@@ -331,11 +337,7 @@ class _PlayerState extends State<Player> {
     return HoverBuilder(
       builder: (isHovered) => Transform.scale(
         scale: isHovered ? 1.1 : 1.0,
-        child: Icon(
-          icon,
-          size: size,
-          color: isHovered ? Colors.white : color,
-        ),
+        child: Icon(icon, size: size, color: isHovered ? Colors.white : color),
       ),
     );
   }

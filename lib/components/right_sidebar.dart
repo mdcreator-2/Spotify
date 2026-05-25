@@ -16,7 +16,7 @@ class RightSidebar extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // ── Header: Playlist name + actions ──
+          // Header
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 16, 16, 16),
             child: Row(
@@ -48,14 +48,14 @@ class RightSidebar extends StatelessWidget {
             ),
           ),
 
-          // ── Scrollable Content ──
+          // Scrollable content
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // ── Album Art (large) ──
+                  // Album art
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: AspectRatio(
@@ -147,7 +147,7 @@ class RightSidebar extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
 
-                  // ── Song Title + Actions ──
+                  // Song title and actions
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -213,7 +213,7 @@ class RightSidebar extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // ── About the artist ──
+                  // About the artist
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
@@ -344,7 +344,7 @@ class RightSidebar extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
 
-                  // ── Credits Section ──
+                  // Credits
                   Text(
                     'Credits',
                     style: GoogleFonts.figtree(

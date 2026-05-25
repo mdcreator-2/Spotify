@@ -18,10 +18,8 @@ class _NavBarState extends State<NavBar> {
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       child: Row(
         children: [
-          //Spotify Logo
+          // Logo
           const SizedBox(width: 16),
-
-          //Logo
           HoverBuilder(
             builder: (isHovered) => Transform.scale(
               scale: isHovered ? 1.05 : 1.0,
@@ -39,7 +37,7 @@ class _NavBarState extends State<NavBar> {
 
           const Spacer(),
 
-          //Home button
+          // Home button
           HoverBuilder(
             builder: (isHovered) => Transform.scale(
               scale: isHovered ? 1.05 : 1.0,
@@ -56,7 +54,7 @@ class _NavBarState extends State<NavBar> {
           ),
           const SizedBox(width: 8),
 
-          //Search Bar
+          // Search bar
           Expanded(
             flex: 3,
             child: HoverBuilder(
@@ -109,7 +107,7 @@ class _NavBarState extends State<NavBar> {
           ),
           const SizedBox(width: 60),
 
-          //Explore Premium Button
+          // Explore premium button
           HoverBuilder(
             builder: (isHovered) => Transform.scale(
               scale: isHovered ? 1.05 : 1.0,
@@ -133,7 +131,7 @@ class _NavBarState extends State<NavBar> {
           ),
           const SizedBox(width: 8),
 
-          //Install App Button
+          // Install app button
           NavLink(
             "Install App",
             fontSize: 14,
@@ -141,15 +139,15 @@ class _NavBarState extends State<NavBar> {
           ),
           const SizedBox(width: 32),
 
-          //Notification Icon Button
+          // Notification button
           NavLink("", fontSize: 16, icon: Icons.notifications_none_rounded),
           const SizedBox(width: 8),
 
-          //Friend Activity Icon Button
+          // Friend activity button
           NavLink("", fontSize: 16, icon: Icons.group_outlined),
           const SizedBox(width: 8),
 
-          //Profile Icon
+          // Profile icon
           HoverBuilder(
             builder: (isHovered) => Transform.scale(
               scale: isHovered ? 1.05 : 1.0,

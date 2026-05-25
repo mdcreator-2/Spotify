@@ -22,7 +22,7 @@ class _SideBarState extends State<SideBar> {
       ),
       child: Column(
         children: [
-          //Sidebar header
+          // Sidebar header
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 12, 12, 12),
             child: Row(
@@ -48,7 +48,7 @@ class _SideBarState extends State<SideBar> {
                   ),
                 ),
                 const Spacer(),
-                // + Create button
+                // Create button
                 HoverBuilder(
                   builder: (isHovered) => Container(
                     padding: const EdgeInsets.symmetric(
@@ -80,7 +80,7 @@ class _SideBarState extends State<SideBar> {
             ),
           ),
 
-          //Filter Chips
+          // Filter chips
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
             child: Align(
@@ -108,7 +108,7 @@ class _SideBarState extends State<SideBar> {
             ),
           ),
 
-          //Search + Recent row
+          // Search and recent
           Padding(
             padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             child: Row(
