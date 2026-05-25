@@ -136,6 +136,20 @@ class _MainBodyState extends State<MainBody> {
 
                     const SizedBox(height: 12),
 
+                    // ── Popular radio ──
+                    _buildSectionHeader('Popular radio'),
+                    _buildHorizontalRadioRow(
+                      items: [
+                        _RadioData('Arijit Singh', const Color(0xFF1A5276)),
+                        _RadioData('KK', const Color(0xFF2E7D32)),
+                        _RadioData('Kishore Kumar', const Color(0xFF8E44AD)),
+                        _RadioData('A.R. Rahman', const Color(0xFFC0392B)),
+                        _RadioData('Shreya Ghoshal', const Color(0xFF2C3E50)),
+                        _RadioData('Diljit D...', const Color(0xFFE67E22)),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+
                     // ── Your favourite artists ──
                     _buildSectionHeader('Your favourite artists'),
                     _buildHorizontalArtistRow(
@@ -149,21 +163,6 @@ class _MainBodyState extends State<MainBody> {
                         _ArtistData('Aditya Rikhari', const Color(0xFF6B4226)),
                         _ArtistData('LXNGVX', const Color(0xFF8E44AD)),
                         _ArtistData('Dj Samir', const Color(0xFF2C3E50)),
-                      ],
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    // ── Popular radio ──
-                    _buildSectionHeader('Popular radio'),
-                    _buildHorizontalRadioRow(
-                      items: [
-                        _RadioData('Arijit Singh', const Color(0xFF1A5276)),
-                        _RadioData('KK', const Color(0xFF2E7D32)),
-                        _RadioData('Kishore Kumar', const Color(0xFF8E44AD)),
-                        _RadioData('A.R. Rahman', const Color(0xFFC0392B)),
-                        _RadioData('Shreya Ghoshal', const Color(0xFF2C3E50)),
-                        _RadioData('Diljit D...', const Color(0xFFE67E22)),
                       ],
                     ),
 
