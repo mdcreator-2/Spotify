@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'hover_builder.dart';
 
 class RightSidebar extends StatelessWidget {
   const RightSidebar({super.key});
@@ -163,12 +164,16 @@ class RightSidebar extends StatelessWidget {
                               ),
                             ),
                             const SizedBox(height: 4),
-                            Text(
-                              'Chaar Diwaari, Raftaar',
-                              style: GoogleFonts.figtree(
-                                color: const Color(0xFFB3B3B3),
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                            HoverBuilder(
+                              builder: (isHovered) => Text(
+                                'Chaar Diwaari, Raftaar',
+                                style: GoogleFonts.figtree(
+                                  color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w400,
+                                  decoration: isHovered ? TextDecoration.underline : null,
+                                  decorationColor: Colors.white,
+                                ),
                               ),
                             ),
                           ],
@@ -178,10 +183,12 @@ class RightSidebar extends StatelessWidget {
                       // Share button
                       Padding(
                         padding: const EdgeInsets.only(top: 4),
-                        child: Icon(
-                          Icons.ios_share_rounded,
-                          color: const Color(0xFFB3B3B3),
-                          size: 20,
+                        child: HoverBuilder(
+                          builder: (isHovered) => Icon(
+                            Icons.ios_share_rounded,
+                            color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+                            size: 20,
+                          ),
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -278,24 +285,29 @@ class RightSidebar extends StatelessWidget {
                                       fontWeight: FontWeight.w700,
                                     ),
                                   ),
-                                  Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 16,
-                                      vertical: 6,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      border: Border.all(
-                                        color: const Color(0xFF727272),
-                                        width: 1,
-                                      ),
-                                    ),
-                                    child: Text(
-                                      'Follow',
-                                      style: GoogleFonts.figtree(
-                                        color: Colors.white,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700,
+                                  HoverBuilder(
+                                    builder: (isHovered) => Transform.scale(
+                                      scale: isHovered ? 1.05 : 1.0,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 16,
+                                          vertical: 6,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20),
+                                          border: Border.all(
+                                            color: isHovered ? Colors.white : const Color(0xFF727272),
+                                            width: 1,
+                                          ),
+                                        ),
+                                        child: Text(
+                                          'Follow',
+                                          style: GoogleFonts.figtree(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -358,12 +370,16 @@ class RightSidebar extends StatelessWidget {
                     Icons.person_outline_rounded,
                   ),
                   const SizedBox(height: 8),
-                  Text(
-                    'Show all',
-                    style: GoogleFonts.figtree(
-                      color: Colors.white,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
+                  HoverBuilder(
+                    builder: (isHovered) => Text(
+                      'Show all',
+                      style: GoogleFonts.figtree(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        decoration: isHovered ? TextDecoration.underline : null,
+                        decorationColor: Colors.white,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -377,9 +393,12 @@ class RightSidebar extends StatelessWidget {
   }
 
   Widget _buildHeaderAction(IconData icon, double size) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: Icon(icon, color: const Color(0xFFB3B3B3), size: size),
+    return HoverBuilder(
+      builder: (isHovered) => Icon(
+        icon,
+        color: isHovered ? Colors.white : const Color(0xFFB3B3B3),
+        size: size,
+      ),
     );
   }
 
@@ -425,18 +444,26 @@ class RightSidebar extends StatelessWidget {
           ),
           // Follow button for artists
           if (role.contains('Artist'))
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: const Color(0xFF727272), width: 1),
-              ),
-              child: Text(
-                'Follow',
-                style: GoogleFonts.figtree(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
+            HoverBuilder(
+              builder: (isHovered) => Transform.scale(
+                scale: isHovered ? 1.05 : 1.0,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(
+                      color: isHovered ? Colors.white : const Color(0xFF727272),
+                      width: 1,
+                    ),
+                  ),
+                  child: Text(
+                    'Follow',
+                    style: GoogleFonts.figtree(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 ),
               ),
             ),
